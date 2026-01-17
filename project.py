@@ -1,17 +1,14 @@
-
 import tkinter
 import math
-
 button_values = [
     ['HEX','DEC','BIN','OCT'], #each list is for one row of buttons
     ['AC','+/','%','÷'],
     ['7','8','9','×'],
     ['4','5','6','-'],
     ['1','2','3','+'],
-    ['0','.','√','=']
-]
-topsymbols = ['HEX','DEC','BIN','OCT']# our top row symbols
-rightsymbols = ['÷','×','-','+','='] #the right column
+    ['0','.','√','=']]
+topsymbols = ['HEX','DEC','BIN','OCT']
+rightsymbols = ['÷','×','-','+','='] 
 greyy = "#999E97"
 darkgrey = "#545454"
 orange = "#e55c26"
@@ -33,7 +30,7 @@ label.grid(row=0, column=0, columnspan=4, sticky='we')
 first_number = None 
 operator = None 
 base = 'DEC' 
-def reset(): #this function is for resetting our value to zero after each calculation(AC)
+def reset(): #this function is for resetting our value to zero after each calculation(AC), i will use it later
     global first_number, operator, base
     first_number = None
     operator = None
@@ -79,9 +76,8 @@ def valhex(text):
     return True
 
 
-def button_clicked(value):
-    global first_number, operator, base #this is for do actual calculation, like our prog will run after we press each button
-
+def button_clicked(value):#this is for do actual calculation, like our prog will run after we press each button
+    global first_number, operator, base 
     if value in '0123456789':
         if label['text'] == '0': #if 0 is on the screen, we have to switch the 0 to the number we pressed then do the calculation
             label['text'] = value
@@ -177,3 +173,4 @@ for r in range(len(button_values)):
         else:
             b.config(background=darkgrey, foreground=wwhite)
 window.mainloop()
+
